@@ -49,7 +49,9 @@ const ChefRecipes = () => {
           <p>Cooking Method:{details.cookingMethod1}</p>
           <p>Rating : {details.rating1}</p>
 
-          <button onClick={notify} className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
+          <button onClick={()=>{notify();
+          event.target.disabled = true;}
+        } className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
             Favorite Item
           </button>
         </div>
@@ -60,7 +62,9 @@ const ChefRecipes = () => {
           <p>Cooking Method:{details.cookingMethod2}</p>
           <p>Rating : {details.rating2}</p>
 
-          <button onClick={notify} className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
+          <button onClick={()=>{notify();
+          event.target.disabled = true;}
+        } className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
             Favorite Item
           </button>
         </div>
@@ -72,7 +76,9 @@ const ChefRecipes = () => {
 
           <p>Rating : {details.rating3}</p>
 
-          <button onClick={notify} className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
+          <button onClick={()=>{notify();
+          event.target.disabled = true;}
+        } className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
             Favorite Item
           </button>
         </div>
