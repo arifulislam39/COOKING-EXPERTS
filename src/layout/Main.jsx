@@ -9,10 +9,8 @@ import Chef from '../pages/Home/chef/Chef';
 const Main = () => {
     return (
         <div>
-            <NavBar></NavBar>
             <Header></Header>
             <Chef></Chef>
-            <Footer></Footer>
         </div>
     );
 };

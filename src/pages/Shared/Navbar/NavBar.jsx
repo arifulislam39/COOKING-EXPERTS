@@ -1,24 +1,22 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const Navbar = () => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Cooking Experts</Navbar.Brand>
-          <Nav className="mx-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="/blog">Blogs</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-          <Button variant="danger">Danger</Button>
+            <div className='bg-slate-800'><div className='flex justify-between ml-56 me-56 mt-5 items-center'>
+            <h2 className='font-bold text-white	 text-lg '>Cooking Experts</h2>
+            <div className='flex gap-5'>
+                <NavLink to='/' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}>Home</NavLink>
+                <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}>Blog</NavLink>
 
-        </Container>
-      </Navbar>
+            </div>
+            <button className="bg-indigo-500 rounded-lg p-3 text-white">
+                Star Applying
+            </button>
+        </div></div>
         </div>
     );
 };
 
-export default NavBar;
+export default Navbar;
