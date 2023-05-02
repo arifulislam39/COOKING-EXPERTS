@@ -6,6 +6,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Main from './layout/main.jsx';
 import Blog from './pages/Blog/Blog.jsx';
+import ChefRecipes from './pages/chefRecipes/ChefRecipes.jsx';
 
 const router =createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router =createBrowserRouter([
       {
         path:'/blog',
         element:<Blog></Blog>
+      },
+      {
+        path:'/chefrecipes/:id',
+        element:<ChefRecipes></ChefRecipes>,
+        loader:({params})=> fetch("http://localhost:5000/chefInfo")
       }
       
 
