@@ -1,15 +1,17 @@
 /*eslint-disable */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import LoginWithSocial from "./LoginWithSocial/LoginWithSocial";
-// import SocialLogin from "./pages/Login/SocialLogin.jsx";
+
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [err, setErr]=useState('');
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,6 +31,7 @@ const Login = () => {
   return (
     <>
       <div className="text-center">
+        <p className="text-red-500">{err}</p>
         <h3 className="font-bold text-3xl mt-6">Please Login</h3>
         <form action="" className="mt-12" onSubmit={handleLogin}>
           <div className="">

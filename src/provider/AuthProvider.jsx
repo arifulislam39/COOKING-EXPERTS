@@ -44,6 +44,18 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const userUpdate = (name, photo) => {
+    setLoading(true);
+    return updateProfile(Auth.loginUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
+  const updateAuthData = (email, name, photo) => {
+    setUser({ ...user, email: email, displayName: name, photoURL: photo });
+  };
+
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -55,6 +67,8 @@ const AuthProvider = ({ children }) => {
     loading,
     googleProvider,
     githubProvider,
+    userUpdate,
+    updateAuthData
   };
 
   return (
