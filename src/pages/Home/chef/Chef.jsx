@@ -24,7 +24,7 @@ const Chef = () => {
               <h2 className="font-bold mt-5">{chef.chefName}</h2>
               <p>Experiences : {chef.yearsOfExperience} years</p>
               <p>Total Recipes : {chef.numberOfRecipes}</p>
-              <p>Likes : {chef.likes}</p>
+              <p>Likes : {chef.likes} </p>
 
               <div className="flex gap-6 mt-3">
                 <div className="flex items-center">
