@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/chefrecipes/:id",
         element:<PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute> ,
-        loader: ({ params }) => fetch("http://localhost:5000/chefInfo"),
+        loader: ({ params }) => fetch("https://delicious-dish-server-arifulislam39.vercel.app/chefInfo"),
       },
     ],
   },
