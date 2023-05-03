@@ -3,7 +3,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
-    const {user} =useContext(AuthContext);
+    const {user, logOut} =useContext(AuthContext);
+    const handleLogout=()=>{
+        logOut()
+        .then()
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     return (
         <div>
             <div className='bg-slate-800 w-full h-20 align-items-center'><div className='flex justify-between ml-56 me-56 mt-5 items-center'>
@@ -13,8 +20,9 @@ const Navbar = () => {
                 <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-cyan-600' : '')}>Blog</NavLink>
 
             </div>
-            {user?<button className="btn btn-active btn-primary">Logout</button>
-:
+
+            {user ?
+            <button onClick={handleLogout} className="btn btn-active btn-primary">Logout</button> :
             <Link to ="/login">
             <button className="bg-indigo-500 rounded-lg p-3 text-white">
                 Login

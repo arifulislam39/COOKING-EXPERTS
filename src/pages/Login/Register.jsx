@@ -1,46 +1,80 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const Navigate=useNavigate();
+
+  const handleRegister =event=>{
+    event.preventDefault();
+
+    const form =event.target;
+    const name =form.name.value;
+    const email =form.email.value;
+    const password =form.password.value;
+    const photo =form.photo.value;
+
+    console.log(name, password, email,photo)
+    createUser(email, password)
+    .then(result => {
+
+        const createdUser =result.user;
+        console.log(createdUser);
+        Navigate('/')
+
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+  }
   return (
     <div>
       <div className="text-center">
         <h3 className="font-bold text-3xl mt-6">Please Register</h3>
-        <form action="" className="mt-12">
+        <form action="" className="mt-12" onSubmit={handleRegister}>
           <div className="">
-            <label htmlFor="" className="font-bold">Name</label>
+            <label htmlFor="" className="font-bold">
+              Name
+            </label>
             <br />
             <input
               type="text"
               placeholder="Your Name"
-              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              className="input input-bordered input-primary w-full max-w-xs mt-3" name='name'
             />
           </div>
           <div className="">
-            <label htmlFor="" className="font-bold">Email</label>
+            <label htmlFor="" className="font-bold">
+              Email
+            </label>
             <br />
             <input
               type="email"
               placeholder="Your email"
-              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              className="input input-bordered input-primary w-full max-w-xs mt-3" name="email"
             />
           </div>
           <div className="mt-6">
-            <label htmlFor="" className="font-bold">Password</label>
+            <label htmlFor="" className="font-bold">
+              Password
+            </label>
             <br />
             <input
               type="password"
               placeholder="Your password"
-              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              className="input input-bordered input-primary w-full max-w-xs mt-3" name="password"
             />
           </div>
           <div className="mt-6">
-            <label htmlFor="" className="font-bold">Photo URL</label>
+            <label htmlFor="" className="font-bold">
+              Photo URL
+            </label>
             <br />
             <input
               type="photo"
               placeholder="Your Photo URL"
-              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              className="input input-bordered input-primary w-full max-w-xs mt-3" name="photo"
             />
           </div>
           <button
@@ -50,7 +84,7 @@ const Register = () => {
             Submit
           </button>
           <p className="mt-6 mb-6">
-            Already have an Account? 
+            Already have an Account?
             <Link to="/login" className="font-bold">
               Login
             </Link>
