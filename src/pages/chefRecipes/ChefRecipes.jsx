@@ -63,7 +63,7 @@ const ChefRecipes = () => {
           <p>Rating : {details.rating2}</p>
 
           <button onClick={()=>{notify();
-          event.target.disabled = true;}
+          event.target.disabled =true;}
         } className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
             Favorite Item
           </button>

@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBm7kb4m5ry0xvqkPEQcRnFb-KdBFlT77o",
-  authDomain: "delicious-dish-ed018.firebaseapp.com",
-  projectId: "delicious-dish-ed018",
-  storageBucket: "delicious-dish-ed018.appspot.com",
-  messagingSenderId: "190934246380",
-  appId: "1:190934246380:web:e8e6dc1aa04d2e1b77d6c9"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
