@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser} = useContext(AuthContext);
   const Navigate=useNavigate();
+  const [error, setError]=useState('');
+  console.log(error)
 
   const handleRegister =event=>{
     event.preventDefault();
@@ -16,7 +18,8 @@ const Register = () => {
     const photo =form.photo.value;
 
     console.log(name, password, email,photo)
-    createUser(email, password)
+    if(email, password){
+        createUser(email, password)
     .then(result => {
 
         const createdUser =result.user;
@@ -27,6 +30,10 @@ const Register = () => {
     .catch(error =>{
         console.log(error)
     })
+    }
+    else{
+        setError('email and password must need')
+    }
   }
   return (
     <div>
@@ -44,11 +51,13 @@ const Register = () => {
               className="input input-bordered input-primary w-full max-w-xs mt-3" name='name'
             />
           </div>
+          
           <div className="">
             <label htmlFor="" className="font-bold">
               Email
             </label>
             <br />
+            <p className="text-red-600">{error}</p>
             <input
               type="email"
               placeholder="Your email"
@@ -59,6 +68,7 @@ const Register = () => {
             <label htmlFor="" className="font-bold">
               Password
             </label>
+            
             <br />
             <input
               type="password"

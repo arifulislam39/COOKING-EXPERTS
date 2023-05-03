@@ -1,6 +1,9 @@
+/*eslint-disable */
 import React, { useContext } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import LoginWithSocial from "./LoginWithSocial/LoginWithSocial";
+// import SocialLogin from "./pages/Login/SocialLogin.jsx";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -65,6 +68,7 @@ const Login = () => {
             </Link>
           </p>
         </form>
+        <LoginWithSocial></LoginWithSocial>
       </div>
     </>
   );

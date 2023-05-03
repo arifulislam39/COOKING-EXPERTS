@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 const Chef = () => {
@@ -20,7 +21,10 @@ const Chef = () => {
               className="text-left text-white border-2 w-auto h-96 rounded-md p-6 bg-slate-800"
               key={chef.id}
             >
-              <img className="w-80 h-40" src={chef.chefPicture} alt="" />
+              <LazyLoad>
+                <img className="w-80 h-40" src={chef.chefPicture} alt="" />
+              </LazyLoad>
+
               <h2 className="font-bold mt-5">{chef.chefName}</h2>
               <p>Experiences : {chef.yearsOfExperience} years</p>
               <p>Total Recipes : {chef.numberOfRecipes}</p>
