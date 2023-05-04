@@ -11,7 +11,7 @@ const FeatureRecipe = () => {
     return (
         <div className="ml-56 me-56 text-center mt-20">
             <h2 className='font-bold text-3xl mb-3'>Featured Recipes</h2>
-            <p>Best Food in the Town</p>
+            <p>Best Recipes in the Town</p>
             <div className="grid gap-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10">
                 {
                     recipes.map(recipe=>(<div className="card w-96 bg-base-100 shadow-xl border-r-slate-800" key={recipe.id}>
