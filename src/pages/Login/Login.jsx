@@ -12,6 +12,8 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
   const [error, setError]=useState('');
 
+
+  // input from user 
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;

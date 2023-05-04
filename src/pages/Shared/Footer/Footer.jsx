@@ -8,13 +8,17 @@ const Footer = () => {
         <a className="link link-hover">Branding</a>
         <a className="link link-hover">Marketing</a>
         <a className="link link-hover">Advertisement</a>
-      </div>
-      <div>
-        <span className="footer-title">Find</span>
-        <a className="link link-hover">Chef</a>
+        <a className="link link-hover">Cooking</a>
         <a className="link link-hover">Recipe</a>
         <a className="link link-hover">Food</a>
         <a className="link link-hover">Restaurants</a>
+      </div>
+      <div>
+        <span className="footer-title">Find Us</span>
+        <a className="link link-hover">Instagram</a>
+        <a className="link link-hover">Facebook</a>
+        <a className="link link-hover">Twitter</a>
+        <a className="link link-hover">Tiktok</a>
       </div>
       <div>
         <span className="footer-title">Company</span>

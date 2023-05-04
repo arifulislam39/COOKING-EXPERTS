@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
 const FeatureRecipe = () => {
-    const [recipes, setRecipes]=useState([])
+    const [recipes, setRecipes]=useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         fetch('https://delicious-dish-server-arifulislam39.vercel.app/featureRecipe')
         .then(res=>res.json())
-        .then(data=> setRecipes(data))
-    }, [])
+        .then(data=> setRecipes(data));
+        setLoading(false)
+    }, []);
+     
+    // loader or spinner
+
+    if (loading) {
+      return <div className="text-center"><progress className="progress w-56 ml-56 me-56 mt-10 mb-10 bg-red-500"></progress>;</div>
+    }
+
     return (
         <div className="ml-56 me-56 text-center mt-20">
             <h2 className='font-bold text-3xl mb-3'>Featured Recipes</h2>

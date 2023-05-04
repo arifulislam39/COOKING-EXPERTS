@@ -8,6 +8,8 @@
 
 * this app built based in American food.
 
+*  A user can login google , github , email & password.
+
 ## Resources & Credits
 
 * CSS framework -> [Tailwind.CSS](https://tailwindcss.com/)

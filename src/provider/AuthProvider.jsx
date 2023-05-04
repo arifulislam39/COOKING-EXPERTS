@@ -19,10 +19,25 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // new user creation 
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(Auth, email, password);
   };
+
+// user profile update 
+  const userProfile =(name, photo)=>{
+    const User =Auth.currentUser
+    return updateProfile(User, {
+      displayName:name, 
+      photoURL:photo});
+  }
+  
+
+
+  //console.log(createUser)
+
+  // sign in and sign out 
 
   const signIn = (email, password) => {
     setLoading(true);
@@ -34,9 +49,8 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(Auth, (loginUser) => {
-      console.log("login user inside observer", loginUser);
-      setUser(loginUser);
+    const unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
     });
     return () => {
@@ -55,6 +69,7 @@ const AuthProvider = ({ children }) => {
     loading,
     googleProvider,
     githubProvider,
+    userProfile
   };
 
   return (

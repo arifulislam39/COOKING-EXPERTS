@@ -11,7 +11,7 @@ const LoginWithSocial = () => {
     signInWithPopup(Auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
+        
         console.log(user);
       })
       .catch((error) => {

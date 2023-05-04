@@ -3,52 +3,52 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser} = useContext(AuthContext);
-  const Navigate=useNavigate();
-  const [error, setError]=useState('');
-  console.log(error)
+  const { createUser, userProfile} = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const [error, setError] = useState("");
+  console.log(error);
 
-  const handleRegister =event=>{
+
+  // input from user 
+  const handleRegister = (event) => {
     event.preventDefault();
 
-    const form =event.target;
-    const name =form.name.value;
-    const email =form.email.value;
-    const password =form.password.value;
-    const photo =form.photo.value;
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
 
-    console.log(name, password, email,photo)
-    if(email, password){
+    console.log(name,email, password, photo);
+    if ((email, password)) {
       if (password.length < 6) {
         setError("Your password should be at least 6 character long.");
         return;
       }
+
+// create user 
       createUser(email, password)
-    .then(result => {
+        .then((result) => {
+          const createdUser = result.user;
+          userProfile(name, photo)
+          .then()
+          console.log(createdUser);
 
-        const createdUser =result.user;
-        console.log(createdUser);
-        Navigate('/')
-        
-
-    })
-    .catch(error =>{
-        console.log(error)
-    })
-    
+          Navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setError("email and password must need");
+      return;
     }
-    else{
+  };
 
-        setError('email and password must need');
-        return 
-
-    }
-    }
-  
   return (
     <div>
       <div className="text-center">
-      <p className="text-red-600 mt-10">{error}</p>
+        <p className="text-red-600 mt-10">{error}</p>
         <h3 className="font-bold text-3xl mt-6">Please Register</h3>
         <form action="" className="mt-12" onSubmit={handleRegister}>
           <div className="">
@@ -59,32 +59,35 @@ const Register = () => {
             <input
               type="text"
               placeholder="Your Name"
-              className="input input-bordered input-primary w-full max-w-xs mt-3" name='name'
+              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              name="name"
             />
           </div>
-          
+
           <div className="">
             <label htmlFor="" className="font-bold">
               Email
             </label>
             <br />
-            
+
             <input
               type="email"
               placeholder="Your email"
-              className="input input-bordered input-primary w-full max-w-xs mt-3" name="email"
+              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              name="email"
             />
           </div>
           <div className="mt-6">
             <label htmlFor="" className="font-bold">
               Password
             </label>
-            
+
             <br />
             <input
               type="password"
               placeholder="Your password"
-              className="input input-bordered input-primary w-full max-w-xs mt-3" name="password"
+              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              name="password"
             />
           </div>
           <div className="mt-6">
@@ -95,7 +98,8 @@ const Register = () => {
             <input
               type="photo"
               placeholder="Your Photo URL"
-              className="input input-bordered input-primary w-full max-w-xs mt-3" name="photo"
+              className="input input-bordered input-primary w-full max-w-xs mt-3"
+              name="photo"
             />
           </div>
           <button
