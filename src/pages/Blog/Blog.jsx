@@ -1,8 +1,18 @@
+/*eslint-disable */
 import React from "react";
+import Pdf from "react-to-pdf";
+
+const ref =React.createRef();
 
 const Blog = () => {
   return (
-    <div className="ml-56 me-56">
+
+    <div className="App ml-56 me-56 mt-10">
+      <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button className="btn btn-error" onClick={toPdf}>Pdf</button>}
+      </Pdf>
+      <div ref={ref}>
+      <div className="">
       <h1 className="font-bold mt-10 text-3xl">Blog Questions:</h1>
       <hr className="border-zinc-950" />
 
@@ -31,6 +41,10 @@ const Blog = () => {
        
       </p>
     </div>
+      </div>
+    </div>
+
+    
   );
 };
 

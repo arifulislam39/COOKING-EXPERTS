@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateAuthData} = useContext(AuthContext);
+  const { createUser} = useContext(AuthContext);
   const Navigate=useNavigate();
   const [error, setError]=useState('');
   console.log(error)
@@ -19,34 +19,36 @@ const Register = () => {
 
     console.log(name, password, email,photo)
     if(email, password){
-        createUser(email, password)
+      if (password.length < 6) {
+        setError("Your password should be at least 6 character long.");
+        return;
+      }
+      createUser(email, password)
     .then(result => {
 
         const createdUser =result.user;
         console.log(createdUser);
         Navigate('/')
-
-        userUpdate()
-        .then(()=>{
-            updateAuthData(email, name, photo);
-        })
-        .catch((error=>{
-            console.log(error)
-        }))
         
 
     })
     .catch(error =>{
         console.log(error)
     })
+    
     }
     else{
-        setError('email and password must need')
+
+        setError('email and password must need');
+        return 
+
     }
-  }
+    }
+  
   return (
     <div>
       <div className="text-center">
+      <p className="text-red-600 mt-10">{error}</p>
         <h3 className="font-bold text-3xl mt-6">Please Register</h3>
         <form action="" className="mt-12" onSubmit={handleRegister}>
           <div className="">
@@ -66,7 +68,7 @@ const Register = () => {
               Email
             </label>
             <br />
-            <p className="text-red-600">{error}</p>
+            
             <input
               type="email"
               placeholder="Your email"
@@ -104,7 +106,7 @@ const Register = () => {
           </button>
           <p className="mt-6 mb-6">
             Already have an Account?
-            <Link to="/login" className="font-bold">
+            <Link to="/login" className="font-bold  text-blue-600">
               Login
             </Link>
           </p>

@@ -10,7 +10,7 @@ const Login = () => {
   const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const [err, setErr]=useState('');
+  const [error, setError]=useState('');
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -25,13 +25,16 @@ const Login = () => {
         Navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        const errorMessage = error.message;
+        const errorForMsg = errorMessage.split(":");
+        setError(errorForMsg[1]);
+        
       });
   };
   return (
     <>
       <div className="text-center">
-        <p className="text-red-500">{err}</p>
+        <p className="text-red-500 mt-10">{error}</p>
         <h3 className="font-bold text-3xl mt-6">Please Login</h3>
         <form action="" className="mt-12" onSubmit={handleLogin}>
           <div className="">
@@ -66,7 +69,7 @@ const Login = () => {
           </button>
           <p className="mt-6 mb-6">
             Dont have an Account?
-            <Link to="/register" className="font-bold">
+            <Link to="/register" className="font-bold text-blue-600">
               Register
             </Link>
           </p>
