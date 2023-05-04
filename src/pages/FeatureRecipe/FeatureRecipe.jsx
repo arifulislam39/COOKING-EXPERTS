@@ -4,7 +4,7 @@ const FeatureRecipe = () => {
     const [recipes, setRecipes]=useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/featureRecipe')
+        fetch('https://delicious-dish-server-arifulislam39.vercel.app/featureRecipe')
         .then(res=>res.json())
         .then(data=> setRecipes(data))
     }, [])

@@ -4,7 +4,7 @@ const Gallery = () => {
     const [food, setFood]=useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:5000/food")
+        fetch("https://delicious-dish-server-arifulislam39.vercel.app/food")
         .then(res=>res.json())
         .then(data=>setFood(data))
     })
