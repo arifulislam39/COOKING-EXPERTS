@@ -24,12 +24,12 @@ const Chef = () => {
         <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
           {chefData.map((chef) => (
             <div
-              className="card text-left text-white border-2 w-auto h-96 rounded-md p-6 bg-slate-800 shadow-4xl"
+              className="card text-left text-white border-2 w-auto h-96 rounded-3xl p-6 bg-slate-800 shadow-4xl"
               key={chef.id}
             >
               {/* LazyLoad */}
 
-              <LazyLoad><img className="w-80 h-40" src={chef.chefPicture} alt="" /></LazyLoad>
+              <LazyLoad><img className="w-80 h-40 rounded-xl" src={chef.chefPicture} alt="" /></LazyLoad>
                 
               
 
