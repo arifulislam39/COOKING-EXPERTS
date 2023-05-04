@@ -12,11 +12,13 @@ const Navbar = () => {
       });
   };
   return (
+
     <div>
-      <div className="bg-slate-800 w-full h-20 align-items-center">
-        <div className="flex justify-between ml-56 me-56 mt-5 items-center">
-          <h2 className="font-bold text-white	 text-lg ">Cooking Experts</h2>
-          <div className="flex gap-5 text-white">
+      <div className="bg-slate-800 navbar">
+        <div className="navbar-start">
+          <h2 className="font-bold text-white	 text-4xl ">Cooking Experts</h2>
+          </div>
+          <div className="navbar-center flex gap-5 text-white">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "text-cyan-600" : "")}
@@ -31,17 +33,17 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="navbar-end flex items-center gap-4">
             {user && (
                 <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                <img className="w-16 h-16 rounded-full" src={user.photoURL} alt="" />
+                <img className="w-16 rounded-full" src={user.photoURL} alt="" />
               </div>
-              
+
             )}
             {user ? (
               <button
                 onClick={handleLogout}
-                className="btn btn-active btn-primary"
+                className="bg-indigo-500 rounded-lg p-3 text-white"
               >
                 Logout
               </button>
@@ -53,7 +55,6 @@ const Navbar = () => {
               </Link>
             )}
           </div>
-        </div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const Chef = () => {
   }, []);
 
   if (loading) {
-    return <progress className="progress w-56 ml-56 me-56 mt-10"></progress>;
+    return <div className="text-center"><progress className="progress w-56 ml-56 me-56 mt-10 mb-10 bg-red-500"></progress>;</div>
   }
   return (
     <div>
@@ -24,7 +24,7 @@ const Chef = () => {
         <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
           {chefData.map((chef) => (
             <div
-              className="text-left text-white border-2 w-auto h-96 rounded-md p-6 bg-slate-800"
+              className="card text-left text-white border-2 w-auto h-96 rounded-md p-6 bg-slate-800 shadow-4xl"
               key={chef.id}
             >
               {/* LazyLoad */}
