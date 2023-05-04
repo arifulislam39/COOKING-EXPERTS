@@ -36,7 +36,7 @@ const LoginWithSocial = () => {
     <div className="mx-auto">
       <button
         onClick={handleGoogleLogin}
-        className="btn btn-outline btn-primary"
+        className="btn btn-outline btn-primary me-3"
       >
         Sign in With Google
       </button>

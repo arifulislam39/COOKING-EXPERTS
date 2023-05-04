@@ -6,7 +6,7 @@ const ref = React.createRef();
 
 const Blog = () => {
   return (
-    <div className="App ml-56 me-56 mt-10">
+    <div className="App ml-56 me-56 mt-10 mb-10">
       <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => (
           <button className="btn btn-error" onClick={toPdf}>
