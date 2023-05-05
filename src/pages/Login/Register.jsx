@@ -30,11 +30,15 @@ const Register = () => {
       createUser(email, password)
         .then((result) => {
           const createdUser = result.user;
+         
           userProfile(name, photo)
           .then()
           console.log(createdUser);
 
-          Navigate("/");
+          Navigate("/")
+
+
+          
         })
         .catch((error) => {
           console.log(error);

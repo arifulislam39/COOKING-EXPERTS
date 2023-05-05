@@ -18,7 +18,7 @@ const Chef = () => {
   }
   return (
     <div>
-      <div className="ml-56 me-56 text-center mt-20 ">
+      <div className="lg:ml-56 lg:me-56  text-center mt-20 ">
         <h1 className="font-bold text-3xl mb-3">Meet The Experts</h1>
         <p>American best chefs list</p>
         <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
@@ -50,7 +50,7 @@ const Chef = () => {
               </div>
 
               <Link to={`/chefrecipes/${chef.id}`}>
-                <button className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3">
+                <button className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3 mb-10">
                   View Recipes
                 </button>
               </Link>

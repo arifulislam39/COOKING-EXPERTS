@@ -2,9 +2,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../../firebase/firebase.config";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginWithSocial = () => {
   const { googleProvider, githubProvider } = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const Auth = getAuth(app);
 
   const handleGoogleLogin = () => {
@@ -13,6 +17,7 @@ const LoginWithSocial = () => {
         const user = result.user;
         
         console.log(user);
+        Navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -25,6 +30,7 @@ const LoginWithSocial = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        Navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
