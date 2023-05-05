@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
       photoURL:photo});
   };
 
-  const updateProfile = (name, photo) => {
+  const userUpdate = (name, photo) => {
     setUser({ ...user,displayName: name, photoURL: photo });
   };
   
@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
     googleProvider,
     githubProvider,
     userProfile,
-    updateProfile
+    userUpdate
   };
 
   return (

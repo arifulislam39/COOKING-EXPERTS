@@ -3,13 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser, userProfile,updateProfile} = useContext(AuthContext);
+  const { createUser, userProfile, userUpdate } = useContext(AuthContext);
   const Navigate = useNavigate();
   const [error, setError] = useState("");
   console.log(error);
 
-
-  // input from user 
+  // input from user
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -19,33 +18,25 @@ const Register = () => {
     const password = form.password.value;
     const photo = form.photo.value;
 
-    console.log(name,email, password, photo);
+    console.log(name, email, password, photo);
     if ((email, password)) {
       if (password.length < 6) {
         setError("Your password should be at least 6 characters long.");
         return;
       }
 
-// create user 
+      // create user
       createUser(email, password)
         .then((result) => {
           const createdUser = result.user;
-         
-          userProfile(name, photo)
-          .then(()=>{
-            updateProfile(name, photo)
 
-          })
-            
-          
+          userProfile(name, photo).then(() => {
+            userUpdate(name, photo);
+          });
+
           console.log(createdUser);
 
-          Navigate("/")
-
-          
-
-
-          
+          Navigate("/");
         })
         .catch((error) => {
           console.log(error);
@@ -59,10 +50,9 @@ const Register = () => {
   return (
     <div>
       <div className="text-center">
-        
         <h3 className="font-bold text-3xl mt-6">Please Register</h3>
         <form action="" className="mt-12" onSubmit={handleRegister}>
-        <p className="text-red-600">{error}</p>
+          <p className="text-red-600">{error}</p>
           <div className="">
             <label htmlFor="" className="font-bold">
               Name
@@ -77,7 +67,6 @@ const Register = () => {
           </div>
 
           <div className="">
-          
             <label htmlFor="" className="font-bold">
               Email
             </label>
