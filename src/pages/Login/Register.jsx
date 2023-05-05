@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser, userProfile} = useContext(AuthContext);
+  const { createUser, userProfile,updateProfile} = useContext(AuthContext);
   const Navigate = useNavigate();
   const [error, setError] = useState("");
   console.log(error);
@@ -22,7 +22,7 @@ const Register = () => {
     console.log(name,email, password, photo);
     if ((email, password)) {
       if (password.length < 6) {
-        setError("Your password should be at least 6 character long.");
+        setError("Your password should be at least 6 characters long.");
         return;
       }
 
@@ -32,10 +32,17 @@ const Register = () => {
           const createdUser = result.user;
          
           userProfile(name, photo)
-          .then()
+          .then(()=>{
+            updateProfile(name, photo)
+
+          })
+            
+          
           console.log(createdUser);
 
           Navigate("/")
+
+          
 
 
           
@@ -44,7 +51,7 @@ const Register = () => {
           console.log(error);
         });
     } else {
-      setError("email and password must need");
+      setError("Email and password required");
       return;
     }
   };
@@ -52,9 +59,10 @@ const Register = () => {
   return (
     <div>
       <div className="text-center">
-        <p className="text-red-600 mt-10">{error}</p>
+        
         <h3 className="font-bold text-3xl mt-6">Please Register</h3>
         <form action="" className="mt-12" onSubmit={handleRegister}>
+        <p className="text-red-600">{error}</p>
           <div className="">
             <label htmlFor="" className="font-bold">
               Name
@@ -69,6 +77,7 @@ const Register = () => {
           </div>
 
           <div className="">
+          
             <label htmlFor="" className="font-bold">
               Email
             </label>

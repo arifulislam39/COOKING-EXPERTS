@@ -36,8 +36,9 @@ const Login = () => {
   return (
     <>
       <div className="text-center mb-10">
-        <p className="text-red-500 mt-10">{error}</p>
+        
         <h3 className="font-bold text-3xl mt-6">Please Login</h3>
+        <p className="text-red-500 mt-5">{error}</p>
         <form action="" className="mt-12" onSubmit={handleLogin}>
           <div className="">
             <label htmlFor="" className="font-bold">
