@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import GoogleFontLoader from "react-google-font-loader";
 
 const Gallery = () => {
   const [food, setFood] = useState([]);
@@ -23,8 +24,18 @@ const Gallery = () => {
   }
 
   return (
+    <>
+    <GoogleFontLoader
+        fonts={[
+          {
+            font: "Lobster",
+            weights: [400, 700],
+          },
+        ]}
+      />
+
     <div className="lg:ml-56 lg:me-56 text-center mt-20 mb-16">
-      <h2 className="font-bold text-3xl mb-3">Gallery</h2>
+      <h2 className="font-bold text-4xl mb-3" style={{ fontFamily:'Lobster'}}>Gallery</h2>
       <p>Tasty & Delicious Food Gallery</p>
       <div className="grid gap-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
         {food.map((item) => (
@@ -39,12 +50,13 @@ const Gallery = () => {
             />
 
             <div className="bg-black pt-36 bg-opacity-75 opacity-0 hover:opacity-100 text-white absolute inset-0 transition-opacity duration-200 ">
-              <p className="font-bold text-2xl">{item.name}</p>
+              <p className="font-bold text-2xl" style={{ fontFamily:'Lobster'}}>{item.name}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
+    </>
   );
 };
 

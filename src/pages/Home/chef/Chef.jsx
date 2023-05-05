@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
+import GoogleFontLoader from "react-google-font-loader";
 
 const Chef = () => {
   const [chefData, setChefData] = useState([]);
@@ -17,9 +18,18 @@ const Chef = () => {
     return <div className="text-center"><progress className="progress w-56 ml-56 me-56 mt-10 mb-10 bg-red-500"></progress>;</div>
   }
   return (
+    <>
+    <GoogleFontLoader
+        fonts={[
+          {
+            font: "Lobster",
+            weights: [400, 700],
+          },
+        ]}
+      />
     <div>
       <div className="lg:ml-56 lg:me-56  text-center mt-20 ">
-        <h1 className="font-bold text-3xl mb-3">Meet The Experts</h1>
+        <h1 className="font-bold text-4xl mb-3" style={{ fontFamily:'Lobster'}}>Meet The Experts</h1>
         <p>American best chefs list</p>
         <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
           {chefData.map((chef) => (
@@ -59,6 +69,7 @@ const Chef = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GoogleFontLoader from "react-google-font-loader";
 
 const ChefRecipes = () => {
   const [details, setDetails] = useState([]);
@@ -22,7 +23,19 @@ const ChefRecipes = () => {
 
   //console.log(data)
   return (
-    <div className="ml-56 me-56">
+    <>
+
+<GoogleFontLoader
+        fonts={[
+          {
+            font: "Lobster",
+            weights: [400, 700],
+          },
+        ]}
+      />
+
+
+    <div className="lg:ml-56 lg:me-56">
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure className="">
           <img
@@ -42,7 +55,7 @@ const ChefRecipes = () => {
 
       {/* recipes title  */}
       <div className="text-center mt-14 font-bold text-xl">
-        <h3>Some Recipes Of <br /><span className="text-3xl">{details.chefName}</span></h3>
+        <h3>Some Recipes Of <br /><span className="text-3xl" style={{ fontFamily:'Lobster'}}>{details.chefName}</span></h3>
         <ToastContainer />
       </div>
 
@@ -93,7 +106,7 @@ const ChefRecipes = () => {
                   }}
                   className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3"
                 >
-                  Favorite Item
+                  Favorite Recipe
                 </button>
               </div>
             </div>
@@ -127,6 +140,7 @@ const ChefRecipes = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

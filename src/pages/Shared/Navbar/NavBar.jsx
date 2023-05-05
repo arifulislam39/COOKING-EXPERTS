@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import GoogleFontLoader from "react-google-font-loader";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,11 +13,20 @@ const Navbar = () => {
       });
   };
   return (
+    <>
+    <GoogleFontLoader
+        fonts={[
+          {
+            font: "Lobster",
+            weights: [400, 700],
+          },
+        ]}
+      />
 
     <div>
       <div className="bg-slate-800 navbar">
         <div className="navbar-start">
-          <h2 className="font-bold text-white	 text-4xl ">Cooking Experts</h2>
+          <h2 className="font-bold text-white	 text-4xl " style={{ fontFamily:'Lobster'}}>Cooking Experts</h2>
           </div>
           <div className="navbar-center flex gap-5 text-white">
             <NavLink
@@ -57,6 +67,7 @@ const Navbar = () => {
           </div>
       </div>
     </div>
+    </>
   );
 };
 

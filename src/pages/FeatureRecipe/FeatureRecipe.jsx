@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import GoogleFontLoader from "react-google-font-loader";
 
 const FeatureRecipe = () => {
     const [recipes, setRecipes]=useState([]);
@@ -18,8 +19,19 @@ const FeatureRecipe = () => {
     }
 
     return (
+      <>
+      <GoogleFontLoader
+        fonts={[
+          {
+            font: "Lobster",
+            weights: [400, 700],
+          },
+        ]}
+      />
+
+
         <div className="lg:ml-56 lg:me-56 text-center mt-20">
-            <h2 className='font-bold text-3xl mb-3'>Featured Recipes</h2>
+            <h2 className='font-bold text-4xl mb-3' style={{ fontFamily:'Lobster'}}>Featured Recipes</h2>
             <p>Best Recipes in the Town</p>
             <div className="grid gap-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10">
                 {
@@ -38,6 +50,7 @@ const FeatureRecipe = () => {
             </div>
             
         </div>
+        </>
     );
 };
 
