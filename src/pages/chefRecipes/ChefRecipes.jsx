@@ -9,6 +9,24 @@ const ChefRecipes = () => {
   const [details, setDetails] = useState([]);
   console.log(details);
 
+  const {chefPicture,bio,likes,chefName,numberOfRecipes,yearsOfExperience,
+    ingredients1,
+    ingredients2,
+    ingredients3,
+    rating1,
+    rating2,
+    rating3,
+    cookingMethod1,
+    cookingMethod2,
+    cookingMethod3,
+    recipePicture1,
+    recipePicture2,
+    recipePicture3,
+    recipeName1,
+    recipeName2,
+    recipeName3
+  } =details;
+
   const { id } = useParams();
 
   const data = useLoaderData();
@@ -40,22 +58,22 @@ const ChefRecipes = () => {
         <figure className="">
           <img
             style={{ width: "1000%", height: "30rem" }}
-            src={details.chefPicture}
+            src={chefPicture}
             alt="Album"
           />
         </figure>
         <div className="card-body bg-slate-300 w-1/2">
-          <h2 className="card-title">{details.chefName}</h2>
-          <p>{details.bio}</p>
-          <p><span className="font-bold">Experiences : </span> {details.yearsOfExperience} years</p>
-          <p><span className="font-bold">Total Recipes  : </span> {details.numberOfRecipes}</p>
-          <p><span className="font-bold">Likes : </span>  {details.likes}</p>
+          <h2 className="card-title">{chefName}</h2>
+          <p>{bio}</p>
+          <p><span className="font-bold">Experiences : </span> {yearsOfExperience} years</p>
+          <p><span className="font-bold">Total Recipes  : </span> {numberOfRecipes}</p>
+          <p><span className="font-bold">Likes : </span>  {likes}</p>
         </div>
       </div>
 
       {/* recipes title  */}
       <div className="text-center mt-14 font-bold text-xl">
-        <h3>Some Recipes Of <br /><span className="text-3xl" style={{ fontFamily:'Lobster'}}>{details.chefName}</span></h3>
+        <h3>Some Recipes Of <br /><span className="text-3xl" style={{ fontFamily:'Lobster'}}>{chefName}</span></h3>
         <ToastContainer />
       </div>
 
@@ -65,13 +83,18 @@ const ChefRecipes = () => {
         <div className="">
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure>
-              <img src={details.recipePicture1} alt="Shoes" />
+              <img src={recipePicture1} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{details.recipeName1}</h2>
-              <p><span className="font-bold">Ingredients : </span>{details.ingredients1}</p>
-              <p><span className="font-bold">Cooking Method : </span>{details.cookingMethod1}</p>
-              <p><span className="font-bold">Rating : </span>{details.rating1}</p>
+              <h2 className="card-title">{recipeName1}</h2>
+              <p className="font-bold">Ingredients :</p>
+              {
+                ingredients1 && ingredients1.map((ingredient, index)=>(
+                  <li key={index}>{ingredient}</li>
+                ))
+              }
+              <p><span className="font-bold">Cooking Method : </span>{cookingMethod1}</p>
+              <p><span className="font-bold">Rating : </span>{rating1}</p>
               <div className="card-actions justify-end">
                 <button
                   onClick={() => {
@@ -80,7 +103,7 @@ const ChefRecipes = () => {
                   }}
                   className="bg-indigo-500 rounded-lg p-3 w-full text-white mt-3"
                 >
-                  Favorite Item
+                  Add To Favorite
                 </button>
               </div>
             </div>
@@ -91,13 +114,18 @@ const ChefRecipes = () => {
         <div>
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure>
-              <img src={details.recipePicture2} alt="Shoes" />
+              <img src={recipePicture2} alt="Shoes" />
             </figure>
             <div className="card-body w-full">
-              <h2 className="card-title">{details.recipeName2}</h2>
-              <p><span className="font-bold">Ingredients : </span>{details.ingredients2}</p>
-              <p><span className="font-bold">Cooking Method : </span>{details.cookingMethod2}</p>
-              <p><span className="font-bold">Rating : </span>{details.rating2}</p>
+              <h2 className="card-title">{recipeName2}</h2>
+              <p className="font-bold">Ingredients :</p>
+              {
+                ingredients2 && ingredients2.map((ingredient, index)=>(
+                  <li key={index}>{ingredient}</li>
+                ))
+              }
+              <p><span className="font-bold">Cooking Method : </span>{cookingMethod2}</p>
+              <p><span className="font-bold">Rating : </span>{rating2}</p>
               <div className="card-actions justify-end">
                 <button
                   onClick={() => {
@@ -117,13 +145,18 @@ const ChefRecipes = () => {
         <div>
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure>
-              <img src={details.recipePicture3} alt="Shoes" />
+              <img src={recipePicture3} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{details.recipeName3}</h2>
-              <p><span className="font-bold">Ingredients : </span>{details.ingredients3}</p>
-              <p><span className="font-bold">Cooking Method : </span>{details.cookingMethod1}</p>
-              <p><span className="font-bold">Rating : </span>{details.rating3}</p>
+              <h2 className="card-title">{recipeName3}</h2>
+              <p className="font-bold">Ingredients :</p>
+              {
+                ingredients1 && ingredients1.map((ingredient, index)=>(
+                  <li key={index}>{ingredient}</li>
+                ))
+              }
+              <p><span className="font-bold">Cooking Method : </span>{cookingMethod1}</p>
+              <p><span className="font-bold">Rating : </span>{rating3}</p>
               <div className="card-actions justify-end">
                 <button
                   onClick={() => {
