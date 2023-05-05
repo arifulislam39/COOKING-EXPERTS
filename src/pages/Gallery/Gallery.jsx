@@ -40,7 +40,7 @@ const Gallery = () => {
       <div className="grid gap-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
         {food.map((item) => (
           <div
-            className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded-3xl shadow-lg hover:shadow-2xl "
+            className="overflow-hidden relative transition duration-200 transform hover:skew-y-12 rounded-3xl shadow-lg hover:shadow-2xl "
             key={item.id}
           >
             <img

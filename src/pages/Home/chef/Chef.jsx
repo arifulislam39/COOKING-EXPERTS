@@ -34,7 +34,7 @@ const Chef = () => {
         <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-10 ">
           {chefData.map((chef) => (
             <div
-              className="card text-left text-white border-2 w-auto h-96 rounded-3xl p-6 bg-slate-800 shadow-4xl"
+              className="card text-left text-white border-2 w-auto h-96 rounded-3xl p-6 bg-slate-800 shadow-4xl overflow-hidden relative transition duration-200 transform hover:translate-y-4 hover:shadow-2xl"
               key={chef.id}
             >
               {/* LazyLoad */}
