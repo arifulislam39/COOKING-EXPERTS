@@ -33,7 +33,7 @@ const ChefRecipes = () => {
     recipeName3,
   } = details;
 
-  //console.log(ingredients1)
+console.log(details);
 
   const { id } = useParams();
 
